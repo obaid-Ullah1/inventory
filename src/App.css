@@ -1,6 +1,6 @@
 body {
   --sb-track-color: #d5dee2;
-  --sb-thumb-color: #1AADAE; /* Updated color */
+  --sb-thumb-color: #3B82F6; /* Updated to selected blue */
   --sb-size: 9px;
 }
 
@@ -20,7 +20,7 @@ body::-webkit-scrollbar-thumb {
 
 @supports not selector(::-webkit-scrollbar) {
   body {
-      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
 
@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #1AADAE; /* Updated color */
+  background-color: #3B82F6; /* Updated to selected blue */
   border-radius: 20px;
 }
 

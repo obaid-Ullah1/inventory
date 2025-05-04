@@ -1,122 +1,102 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../Assets/UroVision Logo.png';
-import healthCareVector from '../Assets/vector1.png';
-import Button1 from '../Components/Button1';
 import { FaApple } from 'react-icons/fa';
-import { BiError } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import PasswordField from '../Components/PasswordField';
-import axios from 'axios';
 import { motion } from 'framer-motion';
+import paperInventoryVector from '../Assets/paperInventoryVector.png'; // Replace with a relevant image
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {}, 500);
-  }, []);
-
-  const handleLogin = async (e) => {
+  const handleLogin = () => {
     navigate('/Dashboard');
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
-      transition={{ duration: 1 }}
-      className='flex items-center justify-center px-2 sm:px-20 md:px-16 lg:px-22 xl:px-36 bg-[#ededfc] min-h-screen font-poppins overflow-hidden'
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4 sm:px-12 font-poppins"
     >
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-        className='flex justify-center w-[95%] sm:w-[75%] rounded-xl shadow-lg bg-white'
-      >
+      <div className="w-full max-w-5xl bg-white shadow-xl rounded-xl grid md:grid-cols-2 overflow-hidden">
+        
+        {/* Vector Side */}
         <motion.div
-          initial={{ x: '-100%' }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
-          className='hidden flex-1 md:flex justify-center items-center bg-gradient-to-b from-[#1AADAE] to-[#159C9D] rounded-l-xl relative'
-        >
-          <motion.img
-            src={healthCareVector}
-            alt='healthcare'
-            className='max-w-[27rem] w-full'
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: 'easeOut' }}
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className='flex flex-col flex-1 max-w-full md:max-w-[50%] px-3 min-[420px]:px-10 md:px-4 lg:px-7 xl:px-10 rounded-r-xl'
+          className="hidden md:flex items-center justify-center bg-gradient-to-b from-blue-600 to-blue-500 p-8"
         >
-          <div className='flex justify-center sm:justify-start'>
-            <img src={logo} alt='UroVision' className='max-w-[7rem] xl:max-w-[9rem] my-5 2xl:my-2' />
+          <img src={paperInventoryVector} alt="Inventory" className="w-full max-w-[22rem]" />
+        </motion.div>
+
+        {/* Form Side */}
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col justify-center px-6 py-10 md:px-10"
+        >
+          <div className="mb-6">
+            <h1 className="text-3xl font-semibold text-blue-700">Welcome Back</h1>
+            <p className="text-gray-500 text-sm">Login to manage your paper inventory</p>
           </div>
 
-          <div className='space-y-2'>
-            <motion.div className='text-center sm:text-start' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-              <h1 className='text-[1.5rem] font-semibold'>Welcome Back !</h1>
-              <p className='text-gray-400 text-[0.8rem]'>Login to access your account</p>
-            </motion.div>
+          <form className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                type="email"
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-            <form className='py-5'>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-                <label htmlFor='email' className='font-medium text-[0.8rem]'>
-                  Email <span className='text-red-500'>*</span>
-                </label>
-                <br />
-                <input
-                  type='email'
-                  name='email'
-                  className='border border-gray-400 w-full text-sm max-w-[30rem] py-2.5 px-2 mt-2 rounded-md'
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </motion.div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Password</label>
+              <PasswordField
+                name="password"
+                width="w-full"
+                position="right-3"
+                change={(e) => setPassword(e.target.value)}
+              />
+            </div>
 
-              <motion.div className='py-3' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
-                <label htmlFor='password' className='font-medium text-[0.8rem]'>
-                  Password <span className='text-red-500'>*</span>
-                </label>
-                <br />
-                <PasswordField name='password' width='max-w-[30rem]' position='right-3' change={(e) => setPassword(e.target.value)} />
-              </motion.div>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={handleLogin}
+              type="button"
+              className="w-full py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition"
+            >
+              Sign In
+            </motion.button>
+          </form>
 
-              <div className='py-5'>
-                <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ duration: 0.3 }}>
-                  <Button1 label='Sign In' click={handleLogin} height='h-[2.7rem] w-full text-base font-semibold' />
-                </motion.div>
-              </div>
+          <p className="text-xs text-gray-500 mt-6">
+            Don't have an account?{" "}
+            <Link to="/SignUp" className="text-blue-600 font-medium hover:underline">
+              Register here
+            </Link>
+          </p>
 
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
-                <p className='text-gray-500 text-xs xl:text-[0.8rem]'>
-                  Don't Have an Account ?
-                  <Link to='/SignUp' className='text-[#1AADAE] font-medium hover:underline'> Register </Link>Here
-                </p>
-              </motion.div>
-
-              <div className='flex justify-evenly py-5'>
-                <motion.button className='py-2 px-5 flex items-center text-sm font-medium border border-gray-300 gap-x-2 rounded-full hover:bg-gray-100' whileHover={{ scale: 1.1 }}>
-                  <FcGoogle className='text-[1.5rem]' />Google
-                </motion.button>
-                <motion.button className='py-2 px-5 flex items-center text-sm font-medium border border-gray-300 gap-x-2 rounded-full hover:bg-gray-100' whileHover={{ scale: 1.1 }}>
-                  <FaApple className='text-[1.5rem]' />Apple
-                </motion.button>
-              </div>
-            </form>
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">
+              <FcGoogle className="text-xl" />
+              Google
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition">
+              <FaApple className="text-xl" />
+              Apple
+            </button>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

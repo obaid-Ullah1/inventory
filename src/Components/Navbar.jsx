@@ -44,7 +44,7 @@ export default function Navbar({ label }) {
         
         {/* Sidebar Toggle Icon */}
         <RiMenu2Fill
-          className="text-[1.4rem] sm:text-[1.7rem] block md:hidden hover:text-[#1AADAE] cursor-pointer transition-all"
+          className="text-[1.4rem] sm:text-[1.7rem] block md:hidden hover:text-[#2563EB] cursor-pointer transition-all"
           onClick={() => toggleSideBar(true)}
         />
 
@@ -53,11 +53,11 @@ export default function Navbar({ label }) {
 
         {/* Notification Bell */}
         <div
-          className="rounded-xl p-2 bg-white inline-block shadow-sm shadow-gray-400 cursor-pointer transition-all hover:bg-[#1AADAE]/10"
+          className="rounded-xl p-2 bg-white inline-block shadow-sm shadow-gray-400 cursor-pointer transition-all hover:bg-[#2563EB]/10"
           onClick={toggleNotification}
           ref={bellIconRef}
         >
-          <GoBellFill className="text-[1.3rem] lg:text-[1.5rem] text-[#1AADAE] hover:text-[#159C9D]" />
+          <GoBellFill className="text-[1.3rem] lg:text-[1.5rem] text-[#2563EB] hover:text-[#3B82F6]" />
         </div>
 
         {/* Notification PopUp */}

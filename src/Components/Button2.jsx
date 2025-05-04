@@ -1,13 +1,15 @@
 import React from 'react'
 
-export default function Button2({label,width,height,fontsize,version,click}) {
-
-  const base = "bg-[#1AADAE] text-white hover:bg-[#159C9D]";
-  const varient = "bg-transparent border border-[#1AADAE] text-[#1AADAE] hover:bg-[#1AADAE] hover:text-white";  
+export default function Button2({ label, width, height, fontsize, version, click }) {
+  const base = "bg-blue-600 text-white hover:bg-blue-700";
+  const varient = "bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white";
 
   return (
-    <>
-      <button className={`${fontsize} ${width} ${height} rounded-md font-medium ${version === "varient" ? varient : base } `} onClick={click}>{label}</button>
-    </>
-  )
+    <button
+      className={`${fontsize} ${width} ${height} rounded-md font-medium ${version === "varient" ? varient : base}`}
+      onClick={click}
+    >
+      {label}
+    </button>
+  );
 }

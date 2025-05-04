@@ -35,7 +35,7 @@ const downloadCSV = (data) => {
   }
 };
 
-export default function PackedPaperRims() {
+export default function PackedCardsRims() {
   const [products, setProducts] = useState([
     {
       product_id: 1,
@@ -146,7 +146,7 @@ export default function PackedPaperRims() {
         {/* Header */}
         <div className="my-7 p-6 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white rounded-xl shadow-lg flex flex-col sm:flex-row justify-between items-center">
           <div>
-            <h2 className="text-2xl font-semibold">Packed Paper Rims</h2>
+            <h2 className="text-2xl font-semibold">Packed Cards Rims</h2>
             <p className="text-sm">Manage your product inventory here.</p>
           </div>
           <div className="flex gap-4">

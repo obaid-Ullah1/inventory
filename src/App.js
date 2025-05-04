@@ -7,11 +7,11 @@ import OTPscreen from './Screens/ForgotPassword'
 import Vector2 from "./Assets/vector2.png";
 import Vector3 from "./Assets/vector3.png";
 import DashBoard from './Screens/DashBoard';
-import Appointment from './Screens/Appointment';
-import Scanner from './Screens/Scanner';
-import PatientRecord from './Screens/PatientRecord';
+import Appointment from './Screens/RolledPaperRims';
+import Scanner from './Screens/PackedCardRims';
+import PatientRecord from './Screens/FinalGoods';
 import Settings from './Screens/Settings';
-import Messages from './Screens/Messages';
+import Messages from './Screens/TitleCardRims';
 import Report from './Screens/Report';
 import MedicalRecord from './Screens/Report';
 import PatientRecordProfile from './Screens/PatientRecordProfile';
@@ -26,7 +26,7 @@ function App() {
       <Route  path='/' element={<Login/>} />
         <Route path='/SignUp' element={<SignUp/>}/>
         <Route path='/Dashboard' element={<DashBoard/>}/>
-        <Route path='/Appointment' element={<Appointment/>}/>
+        <Route path='/RolledPaperRims' element={<Appointment/>}/>
         <Route path='/Scanner' element={<Scanner/>}/>
         <Route path='/PatientRecord' element={<PatientRecord/>}/>
         <Route path='/Settings' element={<Settings/>}/>
